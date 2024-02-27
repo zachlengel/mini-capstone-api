@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get "/first_product", controller: "products", action: "product1"
   get "/all_products", controller: "products", action: "all_products"
   get "/last_product", controller: "products", action: "last_product"
+  get "/product/:id", controller: "products", action: "by_id"
 end
