@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get "/first_product", controller: "products", action: "product1"
-  get "/all_products", controller: "products", action: "all_products"
   get "/last_product", controller: "products", action: "last_product"
   get "/product/:id", controller: "products", action: "by_id"
+
+  get "/products", controller: "products", action: "index"
+  get "/products/:id", controller: "products", action: "show"
 end
