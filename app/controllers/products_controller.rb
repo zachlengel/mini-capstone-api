@@ -26,7 +26,12 @@ class ProductsController < ApplicationController
       image_url: params["image_url"],
       description: params["description"],
     )
-    render :show
+    if @product.valid?
+      render :show
+    else
+      render json: { errors: @product.errors.full_messages },
+             status: :unprocessable_entity
+    end
   end
 
   def update
