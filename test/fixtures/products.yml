@@ -3,8 +3,8 @@
 one:
   name: MyString
   price: 1
-  image_url: MyString
-  description: MyString
+  image_url: MyString.jpg
+  description: long test descriptionnnnnm
 
 two:
   name: MyString
