@@ -20,4 +20,8 @@ class Product < ApplicationRecord
   def total
     tax + price
   end
+
+  def images
+    Image.where(product_id: id)
+  end
 end
