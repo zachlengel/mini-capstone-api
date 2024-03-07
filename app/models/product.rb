@@ -2,8 +2,8 @@ class Product < ApplicationRecord
   validates :price, numericality: true
   validates :price, :name, presence: true
   validates :description, length: { minimum: 20 }
-  validates :image_url, presence: true
-  validates_format_of :image_url, :with => %r{\.(png|jpg|jpeg)$}i, :multiline => true
+  # validates_format_of :image_url, :with => %r{\.(png|jpg|jpeg)$}i, :multiline => true
+  belongs_to :supplier
 
   def supplier
     supplier = Supplier.find_by(id: supplier_id)
