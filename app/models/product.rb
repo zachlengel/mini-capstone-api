@@ -4,7 +4,8 @@ class Product < ApplicationRecord
   # validates :description, length: { minimum: 20 }
   # validates_format_of :image_url, :with => %r{\.(png|jpg|jpeg)$}i, :multiline => true
   belongs_to :supplier
-  belongs_to :order
+  has_many :orders
+  has_many :images
 
   def supplier
     supplier = Supplier.find_by(id: supplier_id)
