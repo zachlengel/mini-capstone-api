@@ -15,7 +15,13 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "create" do
     assert_difference "Product.count", 1 do
-      post "/products.json", params: { name: "test", price: 10, description: "test descriptionnnnnnnnnnnnnnnnnnnns", supplier_id: 2 }
+      post "/users", params: { name: "test", email: "test@test.com", password: "password" }
+      post "/sessions", params: { email: "test@test.com", password: "password" }
+      data = JSON.parse(response.body)
+      jwt = data["jwt"]
+
+      post "/products.json", params: { name: "test", price: 10, description: "test descriptionnnnnnnnnnnnnnnnnnnns", supplier_id: 2 },
+                             headers: { "Authorization" => "Bearer ${jwt}" }
       assert_response 200
     end
 
