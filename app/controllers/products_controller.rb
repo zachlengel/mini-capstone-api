@@ -1,14 +1,5 @@
 class ProductsController < ApplicationController
   before_action :authenticate_admin, except: [:index, :show]
-  # def product1
-  #   @product = Product.first
-  #   render :show
-  # end
-
-  # def last_product
-  #   @product = Product.last
-  #   render :show
-  # end
 
   def index
     @products = Product.all
