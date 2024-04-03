@@ -4,8 +4,8 @@ class Product < ApplicationRecord
   # validates :description, length: { minimum: 20 }
   # validates_format_of :image_url, :with => %r{\.(png|jpg|jpeg)$}i, :multiline => true
   belongs_to :supplier
-  has_many :category_product
-  has_many :orders
+  has_many :category_products
+  has_many :categories, through: :category_products
   has_many :images
 
   def supplier
