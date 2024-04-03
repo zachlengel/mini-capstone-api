@@ -5,7 +5,7 @@ class CartedProductsController < ApplicationController
       user_id: current_user.id,
       product_id: params["product_id"],
       quantity: params["quantity"],
-      status: params["status"],
+      status: "carted",
       order_id: nil
     )
     if @carted_product.valid?
@@ -20,4 +20,9 @@ class CartedProductsController < ApplicationController
     @carted_products = current_user.carted_products
     render :index
   end
+
+  def destroy
+    @carted_products = current_user.carted_products.find_by(id: params["id"])
+    
+
 end
